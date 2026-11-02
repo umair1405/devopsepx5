@@ -1,0 +1,33 @@
+4exp 
+Java JDK 17 → from adoptium.net
+mkdir C:\Jenkins
+cd C:\Jenkins
+
+curl -L -o jenkins.war https://get.jenkins.io/war-stable/latest/jenkins.war
+java -jar jenkins.war --httpPort=8080
+
+Add GitHub Credentials in Jenkins
+o Jenkins Dashboard → Manage Jenkins → Credentials → (Global) → Add Credentials
+o Type: Username with Password
+ Username: GitHub username
+ Password: GitHub Personal Access Token
+o Generate a token from:
+ GitHub → Settings → Developer Settings → Personal Access Tokens
+ Scope: repo, workflow
+
+1.create a freestyle project 
+name -try 1
+2 configure source code management 
+select git 
+https://github.com/umair1405/devopsepx5.git
+3enable GitHub hook trigger for gitsscm polling 
+4 configure build environment 
+optional delete workspace before build and starts 
+5 add build steps
+build steps : invoke maven targets 
+cammnad mvn clean install
+ 
+
+triggers  - GitHub hook trigger for GITScm polling 
+
+build now
